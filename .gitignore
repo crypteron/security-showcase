@@ -1,0 +1,6 @@
+.cache-main
+.cache-tests
+.classpath
+.project
+.settings/
+target/

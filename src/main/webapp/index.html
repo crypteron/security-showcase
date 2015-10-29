@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="techShowcase">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Crypteron Tech Showcase</title>
+
+<!-- Bootstrap -->
+<link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="patients">Crypteron Tech Showcase</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row top-buffer">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="webjars/angularjs/1.4.7/angular.min.js"></script>
+  <script type="text/javascript" src="webjars/angular-resource/1.4.7/angular-resource.min.js"></script>
+  <script type="text/javascript" src="webjars/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
+  <script type="text/javascript" src="js/services.js"></script>
+</body>
+</html>
