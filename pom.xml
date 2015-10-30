@@ -21,7 +21,7 @@
     <jackson.version>3.2.11</jackson.version>
     <hibernate.version>4.3.11.Final</hibernate.version>
     <h2.version>1.4.190</h2.version>
-    <crypteron.version>2015.10.3.1</crypteron.version>
+    <crypteron.version>2015.10.4.0</crypteron.version>
   </properties>
 
   <dependencies>
