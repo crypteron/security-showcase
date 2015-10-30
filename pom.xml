@@ -72,7 +72,6 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
       <version>${hibernate.version}</version>
-      <scope>provided</scope>
     </dependency>
     <!-- Databases -->
     <dependency>
@@ -85,12 +84,6 @@
       <groupId>com.crypteron</groupId>
       <artifactId>cipherdb-agent-hibernate4</artifactId>
       <version>${crypteron.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-entitymanager</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <!-- JCE -->
     <dependency>
@@ -185,13 +178,6 @@
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.3.4.v20151007</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
-          </dependency>
-        </dependencies>
         <configuration>
           <webApp>
             <!-- <webInfIncludeJarPattern>bootstrap*.jar|angular*.jar</webInfIncludeJarPattern> -->
@@ -230,7 +216,7 @@
       </plugins>
     </pluginManagement>
   </build>
-
+  
   <profiles>
     <profile>
       <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
