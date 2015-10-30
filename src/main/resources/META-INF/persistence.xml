@@ -3,6 +3,7 @@
   version="2.0">
 
   <persistence-unit name="com.crypteron.techshowcase">
+    <class>com.crypteron.scala.techshowcase.model.Patient</class>
     <properties>
       <!-- Standard JPA config, use H2 DB for tests -->
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
