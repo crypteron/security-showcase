@@ -13,6 +13,8 @@ import com.crypteron.ciphercore.config.ConfigurationParameter
 trait EntityDbAccess[Entity] {
   implicit protected val persistenceUnitName: String
   private val entityManagerFactory = {
+    // Debugging OpenShift
+    for ((k,v) <- sys.env) println(s"ENV $k = $v")
     // Accommodate overriding App Secret built in with environment variable i.e. cloud deployments
     import ConfigurationParameter.APP_SECRET
     val config = new CrypteronConfiguration
