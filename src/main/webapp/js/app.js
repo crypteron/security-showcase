@@ -4,6 +4,11 @@ angular.module('techShowcase', [ 'ui.router', 'ngResource', 'techShowcase.contro
     url : '/patients',
     templateUrl : 'app/patients/patients.list.tpl.html',
     controller : 'PatientListController',
+      resolve: {
+          patients: function(Patients){
+              return Patients.query().$promise;
+          }
+      }
   }).state('patients.newPatient', {
     url : '/new',
     templateUrl : 'app/patients/patients.add.edit.tpl.html',
@@ -11,7 +16,14 @@ angular.module('techShowcase', [ 'ui.router', 'ngResource', 'techShowcase.contro
   }).state('patients.editPatient', {
     url : '/:id/edit',
     templateUrl : 'app/patients/patients.add.edit.tpl.html',
-    controller : 'PatientEditController'
+    controller : 'PatientEditController',
+      resolve: {
+          patient: function(Patients, $stateParams){
+              return Patients.get({
+                  id : $stateParams.id
+              }).$promise;
+          }
+      }
   });
   $urlRouterProvider.otherwise('/patients');
 });
