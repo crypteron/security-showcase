@@ -15,7 +15,7 @@
         </th>
       </tr>
     </thead>
-    <tr ng-repeat="patient in patients" ui-sref="patients.editPatient({id:patient.id})">
+    <tr ng-repeat="patient in patientList.patients" ui-sref="patients.editPatient({id:patient.id})">
       <td>{{patient.id}}</td>
       <td>{{patient.name}}</td>
       <td>{{patient.ssn}}</td>

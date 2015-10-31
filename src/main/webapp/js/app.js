@@ -7,7 +7,7 @@ angular.module('techShowcase', [ 'ui.router', 'ngResource', 'techShowcase.contro
     }).state('patients.list', {
       url: '',
       templateUrl: 'app/patients/patients.list.tpl.html',
-      controller: 'PatientListController',
+      controller: 'PatientListController as patientList',
       resolve: {
         patients: function(Patients) {
           return Patients.query().$promise;
@@ -16,11 +16,11 @@ angular.module('techShowcase', [ 'ui.router', 'ngResource', 'techShowcase.contro
     }).state('patients.newPatient', {
       url: '/new',
       templateUrl: 'app/patients/patients.add.edit.tpl.html',
-      controller: 'PatientCreateController'
+      controller: 'PatientCreateController as editPatient'
     }).state('patients.editPatient', {
       url: '/:id/edit',
       templateUrl: 'app/patients/patients.add.edit.tpl.html',
-      controller: 'PatientEditController',
+      controller: 'PatientEditController as editPatient',
       resolve: {
         patient: function(Patients, $stateParams) {
           return Patients.get({
