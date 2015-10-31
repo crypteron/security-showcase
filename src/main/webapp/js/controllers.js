@@ -4,23 +4,23 @@ angular.module('techShowcase.controllers', []).controller('PatientListController
   $scope.patient = new Patients();
   $scope.save = function() {
     $scope.patient.$save(function() {
-      $state.go('patients');
+      $state.go('patients.list');
     });
   }
 }).controller('PatientEditController', function($scope, $state, $stateParams, popupService, patient) {
   // Load patient
-    $scope.patient = patient;
+  $scope.patient = patient;
 
   $scope.save = function() {
     $scope.patient.$update(function() {
-      $state.go('patients');
+      $state.go('patients.list');
     });
   };
 
   $scope.deletePatient = function(patient) {
     if (popupService.showPopup('Really delete ' + patient.name + '?')) {
       patient.$delete(function() {
-        $state.go('patients');
+        $state.go('patients.list');
       });
     }
   };
