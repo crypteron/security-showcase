@@ -1,4 +1,4 @@
-package com.crypteron.scala.techshowcase.model
+package com.crypteron.scala.showcase.model
 
 import scala.annotation.meta._
 import javax.persistence._

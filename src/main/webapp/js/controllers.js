@@ -1,4 +1,4 @@
-angular.module('techShowcase.controllers', []).controller('PatientListController', function($state, patients) {
+angular.module('showcase.controllers', []).controller('PatientListController', function($state, patients) {
   this.patients = patients;
 }).controller('PatientCreateController', function($state, Patients) {
   this.patient = new Patients();

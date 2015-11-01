@@ -1,7 +1,7 @@
-package com.crypteron.scala.techshowcase.controller
+package com.crypteron.scala.showcase.controller
 
 import com.crypteron.scala.generic.controller._
-import com.crypteron.scala.techshowcase.model._
+import com.crypteron.scala.showcase.model._
 
 class PatientController extends EntityController[Patient, PatientDto] {
   implicit protected val persistenceUnitName = ShowcaseConstants.PersistenceUnitName

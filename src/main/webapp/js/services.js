@@ -1,4 +1,4 @@
-angular.module('techShowcase.services', []).factory('Patients', function($resource) {
+angular.module('showcase.services', []).factory('Patients', function($resource) {
   return $resource('patients/:id', {
     id: '@id'
   }, {

@@ -1,4 +1,4 @@
-angular.module('techShowcase', [ 'ui.router', 'ngResource', 'techShowcase.controllers', 'techShowcase.services' ])
+angular.module('showcase', [ 'ui.router', 'ngResource', 'showcase.controllers', 'showcase.services' ])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('patients', {
       abstract: true,
