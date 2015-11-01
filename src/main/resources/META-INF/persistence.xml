@@ -3,7 +3,9 @@
   version="2.0">
 
   <persistence-unit name="com.crypteron.showcase">
+    <class>com.crypteron.showcase.model.InsecurePatient</class>
     <class>com.crypteron.showcase.model.Patient</class>
+
     <properties>
       <!-- Standard JPA config, use H2 DB for tests -->
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />

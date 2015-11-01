@@ -6,18 +6,18 @@ import java.net.URISyntaxException;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.Path;
 
-import com.crypteron.showcase.model.Patient;
+import com.crypteron.showcase.model.InsecurePatient;
 
-@Path("patients")
-public class PatientsController extends EntityCrudController<Patient> {
+@Path("insecure/patients")
+public class InsecurePatientController extends EntityCrudController<InsecurePatient> {
 
   @Override
-  String routeIdForEntity(final Patient patient) {
+  String routeIdForEntity(final InsecurePatient patient) {
     return Integer.toString(patient.getId());
   }
 
   @Override
-  URI uriForEntity(final Patient patient) {
+  URI uriForEntity(final InsecurePatient patient) {
     try {
       return new URI(routeIdForEntity(patient));
     } catch (final URISyntaxException e) {
@@ -26,7 +26,7 @@ public class PatientsController extends EntityCrudController<Patient> {
   }
 
   @Override
-  void prepareEntityForCreate(final Patient patient) {
+  void prepareEntityForCreate(final InsecurePatient patient) {
     patient.setId(0);
   }
 }
