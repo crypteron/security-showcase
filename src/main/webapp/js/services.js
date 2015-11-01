@@ -1,5 +1,5 @@
 angular.module('showcase.services', []).factory('Patients', function($resource) {
-  return $resource('patients/:id', {
+  return $resource('java/patients/:id', {
     id: '@id'
   }, {
     update: {
