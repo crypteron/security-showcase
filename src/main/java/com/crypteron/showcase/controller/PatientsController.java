@@ -70,7 +70,7 @@ public class PatientsController {
 
   @DELETE
   @Path("{id}")
-  public void deletePatient(@PathParam("id") final int id, final Patient patient) {
+  public void deletePatient(@PathParam("id") final int id) {
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     entityManager.getTransaction().begin();
     final Patient existingPatient = entityManager.find(Patient.class, id);

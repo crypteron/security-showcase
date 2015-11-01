@@ -236,6 +236,13 @@
       <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
       <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
       <id>openshift</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.glassfish.jersey.containers.glassfish</groupId>
+          <artifactId>jersey-gf-cdi</artifactId>
+          <version>2.14</version>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
           <plugin>
