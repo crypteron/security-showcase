@@ -180,7 +180,7 @@
         <version>9.3.4.v20151007</version>
         <configuration>
           <webApp>
-            <!-- <webInfIncludeJarPattern>bootstrap*.jar|angular*.jar</webInfIncludeJarPattern> -->
+            <webInfIncludeJarPattern>.*/bootstrap[^/]*\.jar$|.*/angular[^/]*\.jar$</webInfIncludeJarPattern>
           </webApp>
         </configuration>
       </plugin>

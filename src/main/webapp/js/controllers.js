@@ -1,29 +1,27 @@
-angular.module('techShowcase.controllers', []).controller('PatientListController', function($scope, $state, Patients) {
-  $scope.patients = Patients.query();
-}).controller('PatientCreateController', function($scope, $state, Patients) {
-  $scope.patient = new Patients();
-  $scope.save = function() {
-    $scope.patient.$save(function() {
-      $state.go('patients');
+angular.module('techShowcase.controllers', []).controller('PatientListController', function($state, patients) {
+  this.patients = patients;
+}).controller('PatientCreateController', function($state, Patients) {
+  this.patient = new Patients();
+  this.save = function() {
+    this.patient.$save(function() {
+      $state.go('patients.list');
     });
   }
-}).controller('PatientEditController', function($scope, $state, $stateParams, popupService, Patients) {
-  $scope.loadPatient = function() {
-    $scope.patient = Patients.get({
-      id : $stateParams.id
+}).controller('PatientEditController', function($state, $stateParams, popupService, patient) {
+  // Load patient
+  this.patient = patient;
+
+  this.save = function() {
+    this.patient.$update(function() {
+      $state.go('patients.list');
     });
   };
-  $scope.save = function() {
-    $scope.patient.$update(function() {
-      $state.go('patients');
-    });
-  };
-  $scope.deletePatient = function(patient) {
+
+  this.deletePatient = function(patient) {
     if (popupService.showPopup('Really delete ' + patient.name + '?')) {
       patient.$delete(function() {
-        $state.go('patients');
+        $state.go('patients.list');
       });
     }
-  }
-  $scope.loadPatient();
+  };
 });

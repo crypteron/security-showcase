@@ -9,18 +9,18 @@
         <th>Name</th>
         <th>SSN</th>
         <th class="text-right">
-          <button class="btn btn-primary btn-xs" ui-sref="newPatient">
+          <button class="btn btn-primary btn-xs" ui-sref="patients.newPatient">
             <i class="glyphicon glyphicon-plus"></i>
           </button>
         </th>
       </tr>
     </thead>
-    <tr ng-repeat="patient in patients" ui-sref="editPatient({id:patient.id})">
+    <tr ng-repeat="patient in patientList.patients" ui-sref="patients.editPatient({id:patient.id})">
       <td>{{patient.id}}</td>
       <td>{{patient.name}}</td>
       <td>{{patient.ssn}}</td>
       <td class="text-right">
-        <button class="btn btn-primary btn-xs" ui-sref="editPatient({id:patient.id})">
+        <button class="btn btn-primary btn-xs" ui-sref="patients.editPatient({id:patient.id})">
           <i class="glyphicon glyphicon-pencil"></i>
         </button>
       </td>
