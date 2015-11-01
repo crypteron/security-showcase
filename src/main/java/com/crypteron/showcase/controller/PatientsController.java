@@ -33,7 +33,9 @@ public class PatientsController {
   public List<Patient> getPatients() {
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     final TypedQuery<Patient> patientsQuery = entityManager.createQuery("from Patient", Patient.class);
-    return patientsQuery.getResultList();
+    final List<Patient> patients = patientsQuery.getResultList();
+    entityManager.close();
+    return patients;
   }
 
   @GET
@@ -41,6 +43,7 @@ public class PatientsController {
   public Patient getPatient(@PathParam("id") final int id) {
     final EntityManager entityManager = entityManagerFactory.createEntityManager();
     final Patient existingPatient = entityManager.find(Patient.class, id);
+    entityManager.close();
     if (existingPatient == null) {
       throw new NotFoundException();
     }
@@ -54,6 +57,7 @@ public class PatientsController {
     entityManager.getTransaction().begin();
     final Patient newPatient = entityManager.merge(patient);
     entityManager.getTransaction().commit();
+    entityManager.close();
     final URI newPatientURI = new URI(Integer.toString(newPatient.getId()));
     return Response.created(newPatientURI).entity(newPatient).build();
   }
@@ -65,6 +69,7 @@ public class PatientsController {
     entityManager.getTransaction().begin();
     final Patient updatedPatient = entityManager.merge(patient);
     entityManager.getTransaction().commit();
+    entityManager.close();
     return updatedPatient;
   }
 
@@ -76,5 +81,6 @@ public class PatientsController {
     final Patient existingPatient = entityManager.find(Patient.class, id);
     entityManager.remove(existingPatient);
     entityManager.getTransaction().commit();
+    entityManager.close();
   }
 }
