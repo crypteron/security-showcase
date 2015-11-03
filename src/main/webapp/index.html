@@ -12,21 +12,36 @@
 <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="patients.list">Crypteron Security Showcase</a>
-      </div>
-    </div>
-  </nav>
   <div class="container">
-    <div class="row top-buffer">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div ui-view></div>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+            aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Crypteron Security Showcase</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="insecurePatients.list">Insecure Java Patients</a></li>
+            <li><a ui-sref="patients.list">Secure Java Patients</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row top-buffer">
+        <div class="col-xs-8 col-xs-offset-2">
+          <div ui-view></div>
+        </div>
       </div>
     </div>
   </div>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script type="text/javascript" src="webjars/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="webjars/angularjs/1.4.7/angular.min.js"></script>
   <script type="text/javascript" src="webjars/angular-resource/1.4.7/angular-resource.min.js"></script>
   <script type="text/javascript" src="webjars/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>

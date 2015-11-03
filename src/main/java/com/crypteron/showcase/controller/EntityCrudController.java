@@ -61,6 +61,9 @@ public abstract class EntityCrudController<Entity> {
 
   @POST
   public Response createEntity(final Entity entity) {
+    if (entity == null) {
+      throw new BadRequestException();
+    }
     prepareEntityForCreate(entity);
     final EntityManager entityManager = getEntityManager();
     final Entity newEntity = entityManager.merge(entity);
@@ -82,7 +85,7 @@ public abstract class EntityCrudController<Entity> {
 
   @DELETE
   @Path("{id}")
-  public void deleteEntity(@PathParam("id") final String id) {
+  public void deleteEntity(@PathParam("id") final int id) {
     final EntityManager entityManager = getEntityManager();
     final Entity existingEntity = entityManager.find(getEntityClass(), id);
     entityManager.remove(existingEntity);

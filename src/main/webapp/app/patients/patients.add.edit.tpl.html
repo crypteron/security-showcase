@@ -1,6 +1,6 @@
 <form class="form-horizontal" role="form" ng-submit="editPatient.save()">
   <div class="modal-header">
-    <h3 class="modal-title">{{editPatient.patient.id ? 'Edit Patient' : 'Add Patient'}}</h3>
+    <h3 class="modal-title">{{editPatient.title}}</h3>
   </div>
   <div class="modal-body">
     <div class="form-group" ng-if="editPatient.patient.id">
@@ -26,7 +26,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <input type="button" class="btn" ui-sref="patients.list" value="Cancel" /> <input type="submit"
+        <input type="button" class="btn" ng-click="editPatient.cancel()" value="Cancel" /> <input type="submit"
           class="btn btn-primary" value="Save" /> <input type="button" class="btn btn-danger"
           ng-if="editPatient.patient.id" ng-click="editPatient.deletePatient(editPatient.patient)" value="Delete" />
       </div>
