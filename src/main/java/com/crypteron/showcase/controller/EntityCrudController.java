@@ -2,7 +2,9 @@ package com.crypteron.showcase.controller;
 
 import java.lang.reflect.ParameterizedType;
 import java.net.URI;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,8 +29,21 @@ import com.crypteron.showcase.model.ShowcaseConstants;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class EntityCrudController<Entity> {
-  private static final EntityManagerFactory entityManagerFactory = Persistence
-      .createEntityManagerFactory(ShowcaseConstants.PERSISTENCE_UNIT_NAME);
+  private static final EntityManagerFactory ENTITY_MANAGER_FACTORY;
+
+  static {
+    final Map<String, String> env = System.getenv();
+    final String mysqlHost = env.get("MYSQL_56_CENTOS7_SERVICE_HOST");
+    final String mysqlDatabase = env.get("MYSQL_DATABASE");
+    final String mysqlUser = env.get("MYSQL_USER");
+    final String mysqlPassword = env.get("MYSQL_PASSWORD");
+
+    final Map<String, Object> envConfig = new HashMap<String, Object>();
+    envConfig.put("javax.persistence.jdbc.url", String.format("jdbc:mysql://%s:3306/%s", mysqlHost, mysqlDatabase));
+    envConfig.put("javax.persistence.jdbc.user", mysqlUser);
+    envConfig.put("javax.persistence.jdbc.password", mysqlPassword);
+    ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory(ShowcaseConstants.PERSISTENCE_UNIT_NAME, envConfig);
+  }
 
   abstract String routeIdForEntity(Entity entity);
 
@@ -93,7 +108,7 @@ public abstract class EntityCrudController<Entity> {
   }
 
   protected EntityManager getEntityManager() {
-    final EntityManager entityManager = entityManagerFactory.createEntityManager();
+    final EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
     entityManager.getTransaction().begin();
     return entityManager;
   }
