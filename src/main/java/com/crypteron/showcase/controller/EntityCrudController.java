@@ -24,12 +24,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.crypteron.showcase.model.ShowcaseConstants;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class EntityCrudController<Entity> {
   private static final EntityManagerFactory ENTITY_MANAGER_FACTORY;
+  private static Logger                     LOG = LoggerFactory.getLogger(EntityCrudController.class);
 
   static {
     final Map<String, String> env = System.getenv();
@@ -42,6 +46,7 @@ public abstract class EntityCrudController<Entity> {
     envConfig.put("javax.persistence.jdbc.url", String.format("jdbc:mysql://%s:3306/%s", mysqlHost, mysqlDatabase));
     envConfig.put("javax.persistence.jdbc.user", mysqlUser);
     envConfig.put("javax.persistence.jdbc.password", mysqlPassword);
+    LOG.info("ENV CONFIG: {}", envConfig);
     ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory(ShowcaseConstants.PERSISTENCE_UNIT_NAME, envConfig);
   }
 

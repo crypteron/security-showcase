@@ -31,12 +31,7 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>1.1.3</version>
-      <scope>runtime</scope>
+      <scope>provided</scope>
     </dependency>
     <!-- Java Servlet API -->
     <dependency>
@@ -190,6 +185,18 @@
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.3.4.v20151007</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.3</version>
+          </dependency>
+        </dependencies>
         <configuration>
           <webApp>
             <webInfIncludeJarPattern>.*/jquery[^/]*\.jar$|.*/bootstrap[^/]*\.jar$|.*/angular[^/]*\.jar$</webInfIncludeJarPattern>
