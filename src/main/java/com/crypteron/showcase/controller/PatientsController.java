@@ -50,7 +50,7 @@ public class PatientsController extends BasePatientController {
 
   @PUT
   @Path("{id}")
-  public Patient updateEntity(@PathParam("id") final String id, final Patient patient) {
+  public Patient updatePatient(@PathParam("id") final String id, final Patient patient) {
     final EntityManager entityManager = getEntityManager();
     final Patient updatedPatient = entityManager.merge(patient);
     closeEntityManager(entityManager);

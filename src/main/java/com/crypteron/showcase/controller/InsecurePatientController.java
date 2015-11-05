@@ -51,7 +51,7 @@ public class InsecurePatientController extends BasePatientController {
 
   @PUT
   @Path("{id}")
-  public InsecurePatient updateEntity(@PathParam("id") final String id, final InsecurePatient patient) {
+  public InsecurePatient updatePatient(@PathParam("id") final String id, final InsecurePatient patient) {
     final EntityManager entityManager = getEntityManager();
     final InsecurePatient updatedPatient = entityManager.merge(patient);
     closeEntityManager(entityManager);
