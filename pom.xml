@@ -17,9 +17,6 @@
     <slf4j.version>1.7.12</slf4j.version>
     <servlet-api.version>3.1.0</servlet-api.version>
     <jersey.version>2.22.1</jersey.version>
-    <scala.version>2.11.7</scala.version>
-    <scalatra.version>2.3.1</scalatra.version>
-    <jackson.version>3.2.11</jackson.version>
     <hibernate.version>4.3.11.Final</hibernate.version>
     <h2.version>1.4.190</h2.version>
     <crypteron.version>2015.10.4.0</crypteron.version>
@@ -56,29 +53,6 @@
       <artifactId>jersey-media-json-jackson</artifactId>
       <version>${jersey.version}</version>
     </dependency>
-    <!-- Scala -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.scala-lang</groupId> -->
-    <!-- <artifactId>scala-library</artifactId> -->
-    <!-- <version>${scala.version}</version> -->
-    <!-- </dependency> -->
-    <!-- Scalatra -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.scalatra</groupId> -->
-    <!-- <artifactId>scalatra_2.11</artifactId> -->
-    <!-- <version>${scalatra.version}</version> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.scalatra</groupId> -->
-    <!-- <artifactId>scalatra-json_2.11</artifactId> -->
-    <!-- <version>${scalatra.version}</version> -->
-    <!-- </dependency> -->
-    <!-- Jackson -->
-    <!-- <dependency> -->
-    <!-- <groupId>org.json4s</groupId> -->
-    <!-- <artifactId>json4s-jackson_2.11</artifactId> -->
-    <!-- <version>${jackson.version}</version> -->
-    <!-- </dependency> -->
     <!-- ORMs -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -180,37 +154,6 @@
           <target>${compiler.version}</target>
         </configuration>
       </plugin>
-      <!-- <plugin> -->
-      <!-- <groupId>net.alchim31.maven</groupId> -->
-      <!-- <artifactId>scala-maven-plugin</artifactId> -->
-      <!-- <version>3.2.2</version> -->
-      <!-- <executions> -->
-      <!-- <execution> -->
-      <!-- <goals> -->
-      <!-- <goal>add-source</goal> -->
-      <!-- <goal>compile</goal> -->
-      <!-- <goal>testCompile</goal> -->
-      <!-- </goals> -->
-      <!-- </execution> -->
-      <!-- </executions> -->
-      <!-- </plugin> -->
-      <!-- <plugin> -->
-      <!-- <groupId>eu.somatik.serviceloader-maven-plugin</groupId> -->
-      <!-- <artifactId>serviceloader-maven-plugin</artifactId> -->
-      <!-- <version>1.0.4</version> -->
-      <!-- <configuration> -->
-      <!-- <services> -->
-      <!-- <param>com.crypteron.scala.generic.controller.EntityController</param> -->
-      <!-- </services> -->
-      <!-- </configuration> -->
-      <!-- <executions> -->
-      <!-- <execution> -->
-      <!-- <goals> -->
-      <!-- <goal>generate</goal> -->
-      <!-- </goals> -->
-      <!-- </execution> -->
-      <!-- </executions> -->
-      <!-- </plugin> -->
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>2.6</version>

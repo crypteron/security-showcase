@@ -11,11 +11,44 @@ import com.crypteron.Secure;
 public class Patient {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  public int    id;
+  private int    id;
   @Secure
-  public String firstName;
+  private String firstName;
   @Secure
-  public String lastName;
+  private String lastName;
   @Secure
-  public String ssn;
+  private String ssn;
+
+  public int getId() {
+    return this.id;
+  }
+
+  public void setId(final int id) {
+    this.id = id;
+  }
+
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  public void setFirstName(final String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  public void setLastName(final String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getSsn() {
+    return this.ssn;
+  }
+
+  public void setSsn(final String ssn) {
+    this.ssn = ssn;
+  }
+
 }
