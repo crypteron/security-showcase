@@ -1,5 +1,13 @@
-angular.module('techShowcase.services', []).factory('Patients', function($resource) {
-  return $resource('patients/:id', {
+angular.module('showcase.services', []).factory('Patients', function($resource) {
+  return $resource('java/patients/:id', {
+    id: '@id'
+  }, {
+    update: {
+      method: 'PUT'
+    }
+  });
+}).factory('InsecurePatients', function($resource) {
+  return $resource('java/insecure/patients/:id', {
     id: '@id'
   }, {
     update: {

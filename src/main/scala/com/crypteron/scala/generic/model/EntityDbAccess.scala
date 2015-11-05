@@ -4,22 +4,13 @@ import javax.persistence._
 import javax.persistence.criteria._
 import scala.reflect._
 import scala.collection.JavaConversions._
-import com.crypteron.ciphercore.config.CrypteronConfiguration
-import com.crypteron.ciphercore.config.ConfigurationParameter
 
 /**
- * Generic Scala wrapper around Java-centric JPA.
- */
+  * Generic Scala wrapper around Java-centric JPA.
+  */
 trait EntityDbAccess[Entity] {
   implicit protected val persistenceUnitName: String
-  private val entityManagerFactory = {
-    // Accommodate overriding App Secret built in with environment variable i.e. cloud deployments
-    import ConfigurationParameter.APP_SECRET
-    val config = new CrypteronConfiguration
-    val appSecretVariable = APP_SECRET.getConfigurationKey.toUpperCase replace (".", "_")
-    sys.env get appSecretVariable foreach (appSecret => config.setConfiguration(APP_SECRET, appSecret))
-    Persistence createEntityManagerFactory (persistenceUnitName, config)
-  }
+  private val entityManagerFactory = Persistence createEntityManagerFactory persistenceUnitName
   protected var entityManager: EntityManager = _
 
   private def entityClass(implicit c: ClassTag[Entity]) = c.runtimeClass

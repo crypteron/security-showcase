@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.crypteron</groupId>
-  <artifactId>tech-showcase</artifactId>
+  <artifactId>security-showcase</artifactId>
   <version>1.0.0.0</version>
   <packaging>war</packaging>
   <inceptionYear>2015</inceptionYear>
@@ -16,22 +16,16 @@
     <compiler.version>1.8</compiler.version>
     <slf4j.version>1.7.12</slf4j.version>
     <servlet-api.version>3.1.0</servlet-api.version>
+    <jersey.version>2.22.1</jersey.version>
     <scala.version>2.11.7</scala.version>
     <scalatra.version>2.3.1</scalatra.version>
     <jackson.version>3.2.11</jackson.version>
     <hibernate.version>4.3.11.Final</hibernate.version>
     <h2.version>1.4.190</h2.version>
-    <crypteron.version>2015.10.2.0</crypteron.version>
+    <crypteron.version>2015.10.4.0</crypteron.version>
   </properties>
 
   <dependencies>
-    <!-- Java Servlet API -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>${servlet-api.version}</version>
-      <scope>provided</scope>
-    </dependency>
     <!-- Logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -44,29 +38,47 @@
       <version>1.1.3</version>
       <scope>runtime</scope>
     </dependency>
+    <!-- Java Servlet API -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Jersey API -->
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-jackson</artifactId>
+      <version>${jersey.version}</version>
+    </dependency>
     <!-- Scala -->
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>${scala.version}</version>
-    </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>org.scala-lang</groupId> -->
+    <!-- <artifactId>scala-library</artifactId> -->
+    <!-- <version>${scala.version}</version> -->
+    <!-- </dependency> -->
     <!-- Scalatra -->
-    <dependency>
-      <groupId>org.scalatra</groupId>
-      <artifactId>scalatra_2.11</artifactId>
-      <version>${scalatra.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.scalatra</groupId>
-      <artifactId>scalatra-json_2.11</artifactId>
-      <version>${scalatra.version}</version>
-    </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>org.scalatra</groupId> -->
+    <!-- <artifactId>scalatra_2.11</artifactId> -->
+    <!-- <version>${scalatra.version}</version> -->
+    <!-- </dependency> -->
+    <!-- <dependency> -->
+    <!-- <groupId>org.scalatra</groupId> -->
+    <!-- <artifactId>scalatra-json_2.11</artifactId> -->
+    <!-- <version>${scalatra.version}</version> -->
+    <!-- </dependency> -->
     <!-- Jackson -->
-    <dependency>
-      <groupId>org.json4s</groupId>
-      <artifactId>json4s-jackson_2.11</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>org.json4s</groupId> -->
+    <!-- <artifactId>json4s-jackson_2.11</artifactId> -->
+    <!-- <version>${jackson.version}</version> -->
+    <!-- </dependency> -->
     <!-- ORMs -->
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -89,34 +101,66 @@
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.52</version>
+      <version>1.53</version>
     </dependency>
 
     <!-- ================== Web ================== -->
     <!-- Bootstrap -->
     <dependency>
-      <groupId>org.webjars</groupId>
+      <groupId>org.webjars.bower</groupId>
       <artifactId>bootstrap</artifactId>
       <version>3.3.5</version>
     </dependency>
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>bootstrap-additions</artifactId>
+      <version>0.3.1</version>
+    </dependency>
+    <!-- jQuery -->
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>jquery</artifactId>
+      <version>2.1.4</version>
+    </dependency>
     <!-- AngularJS -->
     <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>angularjs</artifactId>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>angular</artifactId>
       <version>1.4.7</version>
     </dependency>
     <dependency>
-      <groupId>org.webjars.npm</groupId>
+      <groupId>org.webjars.bower</groupId>
       <artifactId>angular-resource</artifactId>
       <version>1.4.7</version>
     </dependency>
     <dependency>
-      <groupId>org.webjars</groupId>
+      <groupId>org.webjars.bower</groupId>
       <artifactId>angular-ui-router</artifactId>
       <version>0.2.15</version>
     </dependency>
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>angular-animate</artifactId>
+      <version>1.4.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>angular-motion</artifactId>
+      <version>0.4.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>angular-loading-bar</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+    <!-- AngularStrap -->
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>angular-strap</artifactId>
+      <version>2.3.5</version>
+    </dependency>
 
-    <!-- Test -->
+    <!-- ================== Test ================== -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -136,40 +180,40 @@
           <target>${compiler.version}</target>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>net.alchim31.maven</groupId>
-        <artifactId>scala-maven-plugin</artifactId>
-        <version>3.2.2</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>add-source</goal>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>eu.somatik.serviceloader-maven-plugin</groupId>
-        <artifactId>serviceloader-maven-plugin</artifactId>
-        <version>1.0.4</version>
-        <configuration>
-          <services>
-            <param>com.crypteron.scala.generic.controller.EntityController</param>
-          </services>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+      <!-- <plugin> -->
+      <!-- <groupId>net.alchim31.maven</groupId> -->
+      <!-- <artifactId>scala-maven-plugin</artifactId> -->
+      <!-- <version>3.2.2</version> -->
+      <!-- <executions> -->
+      <!-- <execution> -->
+      <!-- <goals> -->
+      <!-- <goal>add-source</goal> -->
+      <!-- <goal>compile</goal> -->
+      <!-- <goal>testCompile</goal> -->
+      <!-- </goals> -->
+      <!-- </execution> -->
+      <!-- </executions> -->
+      <!-- </plugin> -->
+      <!-- <plugin> -->
+      <!-- <groupId>eu.somatik.serviceloader-maven-plugin</groupId> -->
+      <!-- <artifactId>serviceloader-maven-plugin</artifactId> -->
+      <!-- <version>1.0.4</version> -->
+      <!-- <configuration> -->
+      <!-- <services> -->
+      <!-- <param>com.crypteron.scala.generic.controller.EntityController</param> -->
+      <!-- </services> -->
+      <!-- </configuration> -->
+      <!-- <executions> -->
+      <!-- <execution> -->
+      <!-- <goals> -->
+      <!-- <goal>generate</goal> -->
+      <!-- </goals> -->
+      <!-- </execution> -->
+      <!-- </executions> -->
+      <!-- </plugin> -->
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.4</version>
+        <version>2.6</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
@@ -177,43 +221,41 @@
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.3.4.v20151007</version>
+        <version>9.3.5.v20151012</version>
         <configuration>
           <webApp>
-            <webInfIncludeJarPattern>.*/bootstrap[^/]*\.jar$|.*/angular[^/]*\.jar$</webInfIncludeJarPattern>
+            <webInfIncludeJarPattern>.*/jquery[^/]*\.jar$|.*/bootstrap[^/]*\.jar$|.*/angular[^/]*\.jar$</webInfIncludeJarPattern>
           </webApp>
         </configuration>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build 
-          itself. -->
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>eu.somatik.serviceloader-maven-plugin</groupId>
-                    <artifactId>serviceloader-maven-plugin</artifactId>
-                    <versionRange>[1.0.4,)</versionRange>
-                    <goals>
-                      <goal>generate</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <ignore></ignore>
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
+      <!-- Use this profile for any OpenShift specific customization your app will need. -->
+      <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
+      <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
+      <id>openshift</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.glassfish.jersey.containers.glassfish</groupId>
+          <artifactId>jersey-gf-cdi</artifactId>
+          <version>2.14</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <outputDirectory>deployments</outputDirectory>
+              <warName>ROOT</warName>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
