@@ -13,7 +13,7 @@ public class InsecurePatientController extends EntityCrudController<InsecurePati
 
   @Override
   String routeIdForEntity(final InsecurePatient patient) {
-    return Integer.toString(patient.getId());
+    return Integer.toString(patient.id);
   }
 
   @Override
@@ -27,6 +27,6 @@ public class InsecurePatientController extends EntityCrudController<InsecurePati
 
   @Override
   void prepareEntityForCreate(final InsecurePatient patient) {
-    patient.setId(0);
+    patient.id = 0;
   }
 }

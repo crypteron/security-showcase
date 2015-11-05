@@ -13,7 +13,7 @@ public class PatientsController extends EntityCrudController<Patient> {
 
   @Override
   String routeIdForEntity(final Patient patient) {
-    return Integer.toString(patient.getId());
+    return Integer.toString(patient.id);
   }
 
   @Override
@@ -27,6 +27,6 @@ public class PatientsController extends EntityCrudController<Patient> {
 
   @Override
   void prepareEntityForCreate(final Patient patient) {
-    patient.setId(0);
+    patient.id = 0;
   }
 }

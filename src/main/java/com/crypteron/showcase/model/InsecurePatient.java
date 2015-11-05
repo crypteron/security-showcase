@@ -9,31 +9,8 @@ import javax.persistence.Id;
 public class InsecurePatient {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private int    id;
-  private String name;
-  private String ssn;
-
-  public int getId() {
-    return this.id;
-  }
-
-  public void setId(final int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(final String name) {
-    this.name = name;
-  }
-
-  public String getSsn() {
-    return this.ssn;
-  }
-
-  public void setSsn(final String ssn) {
-    this.ssn = ssn;
-  }
+  public int    id;
+  public String firstName;
+  public String lastName;
+  public String ssn;
 }
