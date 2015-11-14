@@ -18,7 +18,7 @@
     <servlet-api.version>3.1.0</servlet-api.version>
     <jersey.version>2.22.1</jersey.version>
     <hibernate.version>4.3.11.Final</hibernate.version>
-    <h2.version>1.4.190</h2.version>
+    <mysql-connector.version>5.1.37</mysql-connector.version>
     <crypteron.version>2015.10.4.0</crypteron.version>
   </properties>
 
@@ -61,9 +61,9 @@
     </dependency>
     <!-- Databases -->
     <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector.version}</version>
     </dependency>
     <!-- Crypteron -->
     <dependency>
@@ -192,6 +192,7 @@
         <plugins>
           <plugin>
             <artifactId>maven-war-plugin</artifactId>
+            <version>2.6</version>
             <configuration>
               <outputDirectory>deployments</outputDirectory>
               <warName>ROOT</warName>
