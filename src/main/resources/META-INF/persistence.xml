@@ -7,11 +7,8 @@
     <class>com.crypteron.showcase.model.Patient</class>
 
     <properties>
-      <!-- Standard JPA config, use H2 DB for tests -->
-      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-      <property name="javax.persistence.jdbc.url" value="jdbc:h2:./target/db1;DB_CLOSE_DELAY=-1;MVCC=TRUE" />
-      <property name="javax.persistence.jdbc.user" value="sa" />
-      <property name="javax.persistence.jdbc.password" value="" />
+      <!-- Standard JPA config -->
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 
       <!-- Hibernate-specific config -->
       <property name="hibernate.hbm2ddl.auto" value="update" />
