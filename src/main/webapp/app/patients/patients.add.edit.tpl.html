@@ -1,7 +1,5 @@
 <form class="form-horizontal" role="form" ng-submit="editPatient.save()">
-  <h1>
-    {{editPatient.title}} <small>{{editPatient.type}}</small>
-  </h1>
+  <h1>{{editPatient.title}}</h1>
   <div class="form-group" ng-if="editPatient.patient.id">
     <label for="id" class="col-sm-2 control-label">Id</label>
     <div class="col-sm-10">

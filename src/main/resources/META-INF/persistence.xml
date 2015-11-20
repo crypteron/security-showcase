@@ -3,20 +3,17 @@
   version="2.0">
 
   <persistence-unit name="com.crypteron.showcase">
-    <class>com.crypteron.showcase.model.InsecurePatient</class>
-    <class>com.crypteron.showcase.model.Patient</class>
 
     <properties>
-      <!-- Standard JPA config -->
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+      <!-- Standard JPA config, use H2 DB for development -->
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:./target/db1;DB_CLOSE_DELAY=-1;MVCC=TRUE" />
+      <property name="javax.persistence.jdbc.user" value="sa" />
+      <property name="javax.persistence.jdbc.password" value="" />
 
       <!-- Hibernate-specific config -->
       <property name="hibernate.hbm2ddl.auto" value="update" />
 
-      <!-- Crypteron config -->
-      <property name="crypteron.appSecret" value="Replace_this_with_app_secret_from_https://my.crypteron.com" />
-      <property name="crypteron.cipherdb.securityPartition" value="" />
-      <property name="crypteron.cipherdb.asRole" value="default" />
     </properties>
   </persistence-unit>
 </persistence>

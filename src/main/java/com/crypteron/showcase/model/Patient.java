@@ -5,18 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.crypteron.Secure;
-
 @Entity
 public class Patient {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int    id;
-  @Secure
   private String firstName;
-  @Secure
   private String lastName;
-  @Secure
   private String ssn;
 
   public int getId() {

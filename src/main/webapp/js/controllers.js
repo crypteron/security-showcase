@@ -1,6 +1,5 @@
 angular.module('showcase.controllers', []).controller('PatientListController',
-  function($state, type, patients, addState, editState) {
-    this.type = type;
+  function($state, patients, addState, editState) {
     this.patients = patients;
     this.addPatient = function() {
       $state.go(addState);
@@ -10,9 +9,8 @@ angular.module('showcase.controllers', []).controller('PatientListController',
         id: patient.id
       });
     }
-  }).controller('PatientCreateController', function($state, type, newPatient, listState) {
+  }).controller('PatientCreateController', function($state, newPatient, listState) {
   this.title = 'Add Patient';
-  this.type = type;
   this.patient = newPatient;
   this.cancel = function() {
     $state.go(listState);
@@ -22,9 +20,8 @@ angular.module('showcase.controllers', []).controller('PatientListController',
       $state.go(listState);
     });
   }
-}).controller('PatientEditController', function($state, type, popupService, patient, listState) {
+}).controller('PatientEditController', function($state, popupService, patient, listState) {
   this.title = 'Edit Patient';
-  this.type = type;
   this.patient = patient;
 
   this.cancel = function() {

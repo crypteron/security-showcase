@@ -1,13 +1,5 @@
 angular.module('showcase.services', []).factory('Patients', function($resource) {
-  return $resource('java/patients/:id', {
-    id: '@id'
-  }, {
-    update: {
-      method: 'PUT'
-    }
-  });
-}).factory('InsecurePatients', function($resource) {
-  return $resource('java/insecure/patients/:id', {
+  return $resource('api/patients/:id', {
     id: '@id'
   }, {
     update: {
